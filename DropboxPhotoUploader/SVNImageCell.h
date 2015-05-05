@@ -10,4 +10,6 @@
 
 @interface SVNImageCell : UICollectionViewCell
 
+- (void)setImage:(UIImage *)image;
+
 @end

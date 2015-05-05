@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		865E96441AF912C300358801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96431AF912C300358801 /* main.m */; };
 		865E96471AF912C300358801 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96461AF912C300358801 /* AppDelegate.m */; };
-		865E964A1AF912C300358801 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96491AF912C300358801 /* ViewController.m */; };
+		865E964A1AF912C300358801 /* SVNMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96491AF912C300358801 /* SVNMainController.m */; };
 		865E964D1AF912C300358801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865E964B1AF912C300358801 /* Main.storyboard */; };
 		865E964F1AF912C300358801 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865E964E1AF912C300358801 /* Images.xcassets */; };
 		865E96521AF912C300358801 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865E96501AF912C300358801 /* LaunchScreen.xib */; };
 		865E965E1AF912C300358801 /* DropboxPhotoUploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E965D1AF912C300358801 /* DropboxPhotoUploaderTests.m */; };
+		865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E96691AF916AD00358801 /* AssetsLibrary.framework */; };
+		865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E966C1AF91A9400358801 /* AVFoundation.framework */; };
+		86A601791AF9376500827547 /* SVNImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A601781AF9376500827547 /* SVNImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,18 @@
 		865E96431AF912C300358801 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		865E96451AF912C300358801 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		865E96461AF912C300358801 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		865E96481AF912C300358801 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		865E96491AF912C300358801 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		865E96481AF912C300358801 /* SVNMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVNMainController.h; sourceTree = "<group>"; };
+		865E96491AF912C300358801 /* SVNMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVNMainController.m; sourceTree = "<group>"; };
 		865E964C1AF912C300358801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		865E964E1AF912C300358801 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		865E96511AF912C300358801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		865E96571AF912C300358801 /* DropboxPhotoUploaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropboxPhotoUploaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		865E965C1AF912C300358801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865E965D1AF912C300358801 /* DropboxPhotoUploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropboxPhotoUploaderTests.m; sourceTree = "<group>"; };
+		865E96691AF916AD00358801 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		865E966C1AF91A9400358801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		86A601771AF9376500827547 /* SVNImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNImageCell.h; sourceTree = "<group>"; };
+		86A601781AF9376500827547 /* SVNImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */,
+				865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,7 @@
 				865E96401AF912C300358801 /* DropboxPhotoUploader */,
 				865E965A1AF912C300358801 /* DropboxPhotoUploaderTests */,
 				865E963F1AF912C300358801 /* Products */,
+				865E966B1AF916B400358801 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,13 +91,11 @@
 		865E96401AF912C300358801 /* DropboxPhotoUploader */ = {
 			isa = PBXGroup;
 			children = (
-				865E96451AF912C300358801 /* AppDelegate.h */,
-				865E96461AF912C300358801 /* AppDelegate.m */,
-				865E96481AF912C300358801 /* ViewController.h */,
-				865E96491AF912C300358801 /* ViewController.m */,
-				865E964B1AF912C300358801 /* Main.storyboard */,
+				86A6017A1AF9376B00827547 /* Models */,
+				865E96681AF912E100358801 /* Views */,
+				865E96671AF912D200358801 /* Controllers */,
+				86A6017B1AF9378F00827547 /* Helpers */,
 				865E964E1AF912C300358801 /* Images.xcassets */,
-				865E96501AF912C300358801 /* LaunchScreen.xib */,
 				865E96411AF912C300358801 /* Supporting Files */,
 			);
 			path = DropboxPhotoUploader;
@@ -117,6 +125,51 @@
 				865E965C1AF912C300358801 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		865E96671AF912D200358801 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				865E96481AF912C300358801 /* SVNMainController.h */,
+				865E96491AF912C300358801 /* SVNMainController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		865E96681AF912E100358801 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				865E964B1AF912C300358801 /* Main.storyboard */,
+				865E96501AF912C300358801 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		865E966B1AF916B400358801 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				865E966C1AF91A9400358801 /* AVFoundation.framework */,
+				865E96691AF916AD00358801 /* AssetsLibrary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86A6017A1AF9376B00827547 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86A601771AF9376500827547 /* SVNImageCell.h */,
+				86A601781AF9376500827547 /* SVNImageCell.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		86A6017B1AF9378F00827547 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				865E96451AF912C300358801 /* AppDelegate.h */,
+				865E96461AF912C300358801 /* AppDelegate.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865E964A1AF912C300358801 /* ViewController.m in Sources */,
+				865E964A1AF912C300358801 /* SVNMainController.m in Sources */,
 				865E96471AF912C300358801 /* AppDelegate.m in Sources */,
 				865E96441AF912C300358801 /* main.m in Sources */,
+				86A601791AF9376500827547 /* SVNImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -348,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +472,7 @@
 				865E96631AF912C300358801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		865E96641AF912C300358801 /* Build configuration list for PBXNativeTarget "DropboxPhotoUploaderTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +481,7 @@
 				865E96661AF912C300358801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
