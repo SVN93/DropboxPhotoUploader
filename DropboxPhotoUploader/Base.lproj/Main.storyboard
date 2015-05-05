@@ -153,8 +153,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outlined-glyph" translatesAutoresizingMaskIntoConstraints="NO" id="CVt-fy-UfC">
+                                <rect key="frame" x="109" y="111" width="102" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="V8j-Zf-7vQ"/>
+                                    <constraint firstAttribute="width" constant="102" id="dJa-eV-Sw3"/>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-LE-njJ" userLabel="Login">
                                 <rect key="frame" x="16" y="237" width="288" height="30"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="NJg-9E-zpP"/>
                                 </constraints>
@@ -163,6 +171,7 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-cA-di2" userLabel="Password">
                                 <rect key="frame" x="16" y="297" width="288" height="30"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WHi-Bt-8HI"/>
                                 </constraints>
@@ -182,15 +191,9 @@
                                     <action selector="loginButtonPressed:" destination="OJT-WA-nZT" eventType="touchUpInside" id="S6z-DN-gEn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outlined-glyph" translatesAutoresizingMaskIntoConstraints="NO" id="CVt-fy-UfC">
-                                <rect key="frame" x="109" y="111" width="102" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="V8j-Zf-7vQ"/>
-                                    <constraint firstAttribute="width" constant="102" id="dJa-eV-Sw3"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bIW-cA-di2" firstAttribute="leading" secondItem="7Hm-85-bvu" secondAttribute="leadingMargin" id="0aL-ir-jZc"/>
                             <constraint firstItem="CVt-fy-UfC" firstAttribute="top" secondItem="dJl-xI-6kO" secondAttribute="bottom" constant="40" id="1Mo-Ab-xiT"/>
@@ -210,6 +213,9 @@
                                 <exclude reference="1Mo-Ab-xiT"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5Vm-rb-Kh7" appends="YES" id="npl-MG-VuW"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Authorization in Dropbox" id="jmL-aP-Svo"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -219,6 +225,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6WW-wz-a0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5Vm-rb-Kh7">
+                    <connections>
+                        <action selector="tapOnVC:" destination="OJT-WA-nZT" id="DZ1-e5-8ak"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1371" y="268"/>
         </scene>

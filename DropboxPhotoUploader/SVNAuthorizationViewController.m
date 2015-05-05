@@ -8,7 +8,7 @@
 
 #import "SVNAuthorizationViewController.h"
 
-@interface SVNAuthorizationViewController ()
+@interface SVNAuthorizationViewController () 
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
@@ -32,8 +32,18 @@
 #pragma mark - Buttons
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
+    
 }
 
+- (IBAction)tapOnVC:(id)sender {
+    if ([self.loginTextField isFirstResponder]) {
+        [self.loginTextField resignFirstResponder];
+    }
+    
+    if ([self.passwordTextField isFirstResponder]) {
+        [self.passwordTextField resignFirstResponder];
+    }
+}
 
 /*
 #pragma mark - Navigation
