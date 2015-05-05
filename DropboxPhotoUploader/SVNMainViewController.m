@@ -6,14 +6,16 @@
 //  Copyright (c) 2015 Vladislav. All rights reserved.
 //
 
-#import "SVNMainController.h"
+#import "SVNMainViewController.h"
 #include <AssetsLibrary/AssetsLibrary.h> 
 #include "SVNImageCell.h"
+#import <DBChooser/DBChooser.h>
 
 static int count = 0;
 static NSString *reusableCellIdentifier = @"SVNReusableCell";
+static NSString *segueToAuthVC = @"segueToAuthVC";
 
-@interface SVNMainController () <UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface SVNMainViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     ALAssetsLibrary *library;
     NSArray *imageArray;
     NSMutableArray *mutableArray;
@@ -24,7 +26,9 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 
 @end
 
-@implementation SVNMainController
+@implementation SVNMainViewController
+
+#pragma mark - SVNMainController life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +43,33 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -  UICollectionViewDelegate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:segueToAuthVC]) {
+
+    }
+}
+
+#pragma mark - Buttons
+
+- (IBAction)uploadButtonPressed:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:segueToAuthVC sender:self];
+}
+
+- (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:segueToAuthVC sender:self];
+//    [[DBChooser defaultChooser] openChooserForLinkType:DBChooserLinkTypePreview
+//                                    fromViewController:self completion:^(NSArray *results)
+//     {
+//         if ([results count]) {
+//             // Process results from Chooser
+//         } else {
+//             // User canceled the action
+//         }
+//     }];
+}
+
+
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -55,6 +85,7 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [selectedImages removeObject:[imageArray objectAtIndex:indexPath.row]];
 }
 
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -68,6 +99,7 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [cell setImage:image];
     return cell;
 }
+
 
 #pragma mark - Helpers
 

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SVNAuthorizationViewController.h
 //  DropboxPhotoUploader
 //
 //  Created by Vladislav on 05.05.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SVNMainController : UIViewController
-
+@interface SVNAuthorizationViewController : UIViewController
 
 @end
-

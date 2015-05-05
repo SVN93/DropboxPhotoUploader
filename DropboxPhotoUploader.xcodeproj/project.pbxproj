@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861691FE1AF94AA90051A551 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 861691FC1AF94AA90051A551 /* DBChooser.bundle */; };
+		861691FF1AF94AA90051A551 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861691FD1AF94AA90051A551 /* DBChooser.framework */; };
+		861692021AF952730051A551 /* SVNAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861692011AF952730051A551 /* SVNAuthorizationViewController.m */; };
 		865E96441AF912C300358801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96431AF912C300358801 /* main.m */; };
 		865E96471AF912C300358801 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96461AF912C300358801 /* AppDelegate.m */; };
-		865E964A1AF912C300358801 /* SVNMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96491AF912C300358801 /* SVNMainController.m */; };
+		865E964A1AF912C300358801 /* SVNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96491AF912C300358801 /* SVNMainViewController.m */; };
 		865E964D1AF912C300358801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865E964B1AF912C300358801 /* Main.storyboard */; };
 		865E964F1AF912C300358801 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865E964E1AF912C300358801 /* Images.xcassets */; };
 		865E96521AF912C300358801 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865E96501AF912C300358801 /* LaunchScreen.xib */; };
@@ -30,13 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		861691FC1AF94AA90051A551 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		861691FD1AF94AA90051A551 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
+		861692001AF952730051A551 /* SVNAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNAuthorizationViewController.h; sourceTree = "<group>"; };
+		861692011AF952730051A551 /* SVNAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNAuthorizationViewController.m; sourceTree = "<group>"; };
 		865E963E1AF912C300358801 /* DropboxPhotoUploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxPhotoUploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865E96421AF912C300358801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865E96431AF912C300358801 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		865E96451AF912C300358801 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		865E96461AF912C300358801 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		865E96481AF912C300358801 /* SVNMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVNMainController.h; sourceTree = "<group>"; };
-		865E96491AF912C300358801 /* SVNMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVNMainController.m; sourceTree = "<group>"; };
+		865E96481AF912C300358801 /* SVNMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVNMainViewController.h; sourceTree = "<group>"; };
+		865E96491AF912C300358801 /* SVNMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVNMainViewController.m; sourceTree = "<group>"; };
 		865E964C1AF912C300358801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		865E964E1AF912C300358801 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		865E96511AF912C300358801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 			files = (
 				865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */,
 				865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */,
+				861691FF1AF94AA90051A551 /* DBChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +138,10 @@
 		865E96671AF912D200358801 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				865E96481AF912C300358801 /* SVNMainController.h */,
-				865E96491AF912C300358801 /* SVNMainController.m */,
+				865E96481AF912C300358801 /* SVNMainViewController.h */,
+				865E96491AF912C300358801 /* SVNMainViewController.m */,
+				861692001AF952730051A551 /* SVNAuthorizationViewController.h */,
+				861692011AF952730051A551 /* SVNAuthorizationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +158,8 @@
 		865E966B1AF916B400358801 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				861691FC1AF94AA90051A551 /* DBChooser.bundle */,
+				861691FD1AF94AA90051A551 /* DBChooser.framework */,
 				865E966C1AF91A9400358801 /* AVFoundation.framework */,
 				865E96691AF916AD00358801 /* AssetsLibrary.framework */,
 			);
@@ -253,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865E964D1AF912C300358801 /* Main.storyboard in Resources */,
+				861691FE1AF94AA90051A551 /* DBChooser.bundle in Resources */,
 				865E96521AF912C300358801 /* LaunchScreen.xib in Resources */,
 				865E964F1AF912C300358801 /* Images.xcassets in Resources */,
 			);
@@ -272,7 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865E964A1AF912C300358801 /* SVNMainController.m in Sources */,
+				865E964A1AF912C300358801 /* SVNMainViewController.m in Sources */,
+				861692021AF952730051A551 /* SVNAuthorizationViewController.m in Sources */,
 				865E96471AF912C300358801 /* AppDelegate.m in Sources */,
 				865E96441AF912C300358801 /* main.m in Sources */,
 				86A601791AF9376500827547 /* SVNImageCell.m in Sources */,
@@ -401,6 +415,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,6 +430,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
