@@ -17,7 +17,9 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     ALAssetsLibrary *library;
     NSArray *imageArray;
     NSMutableArray *mutableArray;
+    NSMutableArray *selectedImages;
 }
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -28,6 +30,7 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.collectionView.allowsMultipleSelection = YES;
+    selectedImages = [NSMutableArray new];
     [self getAllPictures];
 }
 
@@ -42,12 +45,14 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 {
     SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:YES];
+    [selectedImages addObject:[imageArray objectAtIndex:indexPath.row]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:NO];
+    [selectedImages removeObject:[imageArray objectAtIndex:indexPath.row]];
 }
 
 #pragma mark - UICollectionViewDataSource
