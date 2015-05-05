@@ -13,7 +13,7 @@
 static int count = 0;
 static NSString *reusableCellIdentifier = @"SVNReusableCell";
 
-@interface SVNMainController () <UICollectionViewDataSource, UIBarPositioningDelegate> {
+@interface SVNMainController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     ALAssetsLibrary *library;
     NSArray *imageArray;
     NSMutableArray *mutableArray;
@@ -27,12 +27,27 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.collectionView.allowsMultipleSelection = YES;
     [self getAllPictures];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -  UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    [selectedCell setSelected:YES];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    [selectedCell setSelected:NO];
 }
 
 #pragma mark - UICollectionViewDataSource

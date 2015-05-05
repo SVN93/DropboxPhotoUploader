@@ -21,6 +21,12 @@
 //    [self.name setText:[image accessibilityIdentifier]];
     NSString *size = [NSString stringWithFormat:@"%0.fx%0.f", image.size.width, image.size.height];
     [self.name setText:size];
+    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
+//    [selectedBackgroundView setBackgroundColor:[UIColor redColor]];
+    selectedBackgroundView.layer.cornerRadius = 10.0;
+    selectedBackgroundView.layer.borderWidth = 1.0;
+    [selectedBackgroundView.layer setBorderColor:[[UIColor blueColor] CGColor]];
+    [self setSelectedBackgroundView:selectedBackgroundView];
 }
 
 @end
