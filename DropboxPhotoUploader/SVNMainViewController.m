@@ -9,11 +9,10 @@
 #import "SVNMainViewController.h"
 #include <AssetsLibrary/AssetsLibrary.h> 
 #include "SVNImageCell.h"
-#import <DBChooser/DBChooser.h>
+#import <DropboxSDK/DropboxSDK.h>
 
 static int count = 0;
 static NSString *reusableCellIdentifier = @"SVNReusableCell";
-static NSString *segueToAuthVC = @"segueToAuthVC";
 
 @interface SVNMainViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     ALAssetsLibrary *library;
@@ -43,29 +42,19 @@ static NSString *segueToAuthVC = @"segueToAuthVC";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:segueToAuthVC]) {
-
-    }
-}
 
 #pragma mark - Buttons
 
 - (IBAction)uploadButtonPressed:(UIBarButtonItem *)sender {
-    [self performSegueWithIdentifier:segueToAuthVC sender:self];
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
 }
 
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
-    [self performSegueWithIdentifier:segueToAuthVC sender:self];
-//    [[DBChooser defaultChooser] openChooserForLinkType:DBChooserLinkTypePreview
-//                                    fromViewController:self completion:^(NSArray *results)
-//     {
-//         if ([results count]) {
-//             // Process results from Chooser
-//         } else {
-//             // User canceled the action
-//         }
-//     }];
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
 }
 
 
