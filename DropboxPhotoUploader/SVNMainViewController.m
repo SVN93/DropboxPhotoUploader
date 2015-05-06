@@ -24,6 +24,7 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *downloadButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uploadButton;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 //@property (nonatomic, strong) DBRestClient *restClient;
 @property (nonatomic) NSMutableArray *selectedImages;

@@ -13,6 +13,6 @@ typedef void (^UPCompletionBlock)(BOOL success);
 
 + (id)sharedManager;
 
-//+ (void)uploadFile:filename toPath:destDir withParentRev:(NSString *)parentRev fromPath:(NSString *)sourcePath withCallback:(UPCompletionBlock)callback;
++ (void)uploadFile:filename toPath:destDir withParentRev:(NSString *)parentRev fromPath:(NSString *)sourcePath withCallback:(UPCompletionBlock)callback;
 
 @end

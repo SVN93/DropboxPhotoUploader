@@ -112,12 +112,18 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="ddW-bc-vhg"/>
                                 </connections>
                             </collectionView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V6v-Iw-JND">
+                                <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="V6v-Iw-JND" firstAttribute="trailing" secondItem="JsA-E1-fz2" secondAttribute="trailing" id="1KV-fO-fPe"/>
                             <constraint firstItem="0Zk-44-Yyj" firstAttribute="top" secondItem="JsA-E1-fz2" secondAttribute="bottom" id="23u-YZ-kJI"/>
                             <constraint firstItem="JsA-E1-fz2" firstAttribute="leading" secondItem="xSo-Qx-dd9" secondAttribute="leadingMargin" constant="-16" id="3LW-uQ-KK5"/>
+                            <constraint firstItem="V6v-Iw-JND" firstAttribute="leading" secondItem="JsA-E1-fz2" secondAttribute="leading" id="4dQ-Cb-zoR"/>
                             <constraint firstItem="JsA-E1-fz2" firstAttribute="top" secondItem="xSo-Qx-dd9" secondAttribute="topMargin" id="gQH-4j-vRY"/>
+                            <constraint firstItem="V6v-Iw-JND" firstAttribute="top" secondItem="bA5-Ge-Rmb" secondAttribute="bottom" id="gyC-dA-qv6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JsA-E1-fz2" secondAttribute="trailing" constant="-16" id="r1g-hR-txn"/>
                         </constraints>
                     </view>
@@ -137,6 +143,7 @@
                     <connections>
                         <outlet property="collectionView" destination="JsA-E1-fz2" id="QyX-Xn-SVA"/>
                         <outlet property="downloadButton" destination="bl6-yK-AJU" id="U9O-QQ-TiN"/>
+                        <outlet property="progressView" destination="V6v-Iw-JND" id="mzn-FC-iO4"/>
                         <outlet property="uploadButton" destination="87i-pF-eZT" id="uA9-uK-Jan"/>
                     </connections>
                 </viewController>
