@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860C8D901AFA5FFA00774F5D /* SVNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C8D8F1AFA5FFA00774F5D /* SVNImage.m */; };
+		86132F541AFA760F00154B33 /* SVNDropboxNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */; };
 		861692061AF965F70051A551 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692051AF965F70051A551 /* DropboxSDK.framework */; };
 		861692081AF9660D0051A551 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692071AF9660D0051A551 /* Security.framework */; };
 		8616920A1AF966160051A551 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692091AF966160051A551 /* QuartzCore.framework */; };
@@ -33,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		860C8D8E1AFA5FFA00774F5D /* SVNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNImage.h; sourceTree = "<group>"; };
+		860C8D8F1AFA5FFA00774F5D /* SVNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNImage.m; sourceTree = "<group>"; };
+		86132F521AFA760F00154B33 /* SVNDropboxNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNDropboxNetworking.h; sourceTree = "<group>"; };
+		86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNDropboxNetworking.m; sourceTree = "<group>"; };
 		861692051AF965F70051A551 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		861692071AF9660D0051A551 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		861692091AF966160051A551 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -104,6 +110,8 @@
 				865E96681AF912E100358801 /* Views */,
 				865E96671AF912D200358801 /* Controllers */,
 				86A6017B1AF9378F00827547 /* Helpers */,
+				865E96451AF912C300358801 /* AppDelegate.h */,
+				865E96461AF912C300358801 /* AppDelegate.m */,
 				865E964E1AF912C300358801 /* Images.xcassets */,
 				865E96411AF912C300358801 /* Supporting Files */,
 			);
@@ -171,6 +179,8 @@
 			children = (
 				86A601771AF9376500827547 /* SVNImageCell.h */,
 				86A601781AF9376500827547 /* SVNImageCell.m */,
+				860C8D8E1AFA5FFA00774F5D /* SVNImage.h */,
+				860C8D8F1AFA5FFA00774F5D /* SVNImage.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -178,8 +188,8 @@
 		86A6017B1AF9378F00827547 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				865E96451AF912C300358801 /* AppDelegate.h */,
-				865E96461AF912C300358801 /* AppDelegate.m */,
+				86132F521AFA760F00154B33 /* SVNDropboxNetworking.h */,
+				86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -284,9 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				860C8D901AFA5FFA00774F5D /* SVNImage.m in Sources */,
 				865E964A1AF912C300358801 /* SVNMainViewController.m in Sources */,
 				865E96471AF912C300358801 /* AppDelegate.m in Sources */,
 				865E96441AF912C300358801 /* main.m in Sources */,
+				86132F541AFA760F00154B33 /* SVNDropboxNetworking.m in Sources */,
 				86A601791AF9376500827547 /* SVNImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

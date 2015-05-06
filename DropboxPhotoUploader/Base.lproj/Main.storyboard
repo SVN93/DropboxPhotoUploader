@@ -39,7 +39,7 @@
                                                     <rect key="frame" x="0.0" y="110" width="130" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="MCt-oe-LCi"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="lJm-J3-k58"/>
+                                                        <constraint firstAttribute="height" constant="20" id="lJm-J3-k58"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -82,6 +82,7 @@
                                             <constraint firstItem="UuK-By-gn7" firstAttribute="leading" secondItem="EzT-y6-si8" secondAttribute="leadingMargin" constant="7" id="hBT-IX-yKf"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="UuK-By-gn7" secondAttribute="trailing" constant="7" id="l3L-dN-F0N"/>
                                             <constraint firstItem="8Vw-dr-HZv" firstAttribute="leading" secondItem="EzT-y6-si8" secondAttribute="leadingMargin" constant="-8" id="qkg-9w-dah"/>
+                                            <constraint firstItem="UuK-By-gn7" firstAttribute="top" secondItem="EzT-y6-si8" secondAttribute="topMargin" id="wjh-KS-Ol7"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="UuK-By-gn7" secondAttribute="trailing" constant="7" id="zOi-BC-fch"/>
                                         </constraints>
                                         <variation key="default">
@@ -91,6 +92,7 @@
                                                 <exclude reference="L3K-rQ-rkJ"/>
                                                 <exclude reference="PFd-S2-2gs"/>
                                                 <exclude reference="PKh-VD-QYM"/>
+                                                <exclude reference="cpC-vr-2Yg"/>
                                                 <exclude reference="hBT-IX-yKf"/>
                                                 <exclude reference="l3L-dN-F0N"/>
                                                 <exclude reference="FCq-2D-h0f"/>
@@ -134,6 +136,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="JsA-E1-fz2" id="QyX-Xn-SVA"/>
+                        <outlet property="downloadButton" destination="bl6-yK-AJU" id="U9O-QQ-TiN"/>
+                        <outlet property="uploadButton" destination="87i-pF-eZT" id="uA9-uK-Jan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
