@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SVNNetworkManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic) SVNNetworkManager *networkManager;
 
 @end
 

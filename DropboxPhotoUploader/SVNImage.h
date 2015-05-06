@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include <AssetsLibrary/AssetsLibrary.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface SVNImage : UIImage
 

@@ -1,24 +1,24 @@
 //
-//  SVNDropboxNetworking.m
+//  SVNNetworkManager.m
 //  DropboxPhotoUploader
 //
 //  Created by Vladislav on 06.05.15.
 //  Copyright (c) 2015 Vladislav. All rights reserved.
 //
 
-#import "SVNDropboxNetworking.h"
+#import "SVNNetworkManager.h"
 #import <DropboxSDK/DropboxSDK.h>
 
-@interface SVNDropboxNetworking () <DBRestClientDelegate>
+@interface SVNNetworkManager () <DBRestClientDelegate>
 
-@property (nonatomic, strong) DBRestClient *restClient;
+@property (nonatomic) DBRestClient *restClient;
 
 @end
 
-@implementation SVNDropboxNetworking
+@implementation SVNNetworkManager
 
 + (id)sharedManager {
-    static SVNDropboxNetworking *sharedMyManager = nil;
+    static SVNNetworkManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
@@ -31,18 +31,19 @@
     self = [super init];
     
     if (self) {
-        self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-        self.restClient.delegate = self;
+                self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+                self.restClient.delegate = self;
     }
     
     return self;
 }
 
 + (void)uploadFile:filename toPath:destDir withParentRev:(NSString *)parentRev fromPath:(NSString *)sourcePath withCallback:(UPCompletionBlock)callback {
-    SVNDropboxNetworking *dropboxNetworking = [self sharedManager];
-    [dropboxNetworking.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:sourcePath];
+    SVNNetworkManager *dropboxNetworking = [self sharedManager];
+//    [dropboxNetworking.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:sourcePath];
     callback(YES);
 }
+
 
 #pragma mark - DBRestClientDelegate
 

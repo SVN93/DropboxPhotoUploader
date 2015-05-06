@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SVNNetworkManager.h"
 #import <DropboxSDK/DropboxSDK.h>
 
 @interface AppDelegate ()
@@ -23,6 +24,8 @@
                             appSecret:@"n87785kkfp8t39k"
                             root:kDBRootAppFolder]; // either kDBRootAppFolder or kDBRootDropbox
     [DBSession setSharedSession:dbSession];
+    
+    self.networkManager = [[SVNNetworkManager alloc] init];
     
     return YES;
 }

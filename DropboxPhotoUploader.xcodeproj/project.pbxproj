@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		860C8D901AFA5FFA00774F5D /* SVNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C8D8F1AFA5FFA00774F5D /* SVNImage.m */; };
-		86132F541AFA760F00154B33 /* SVNDropboxNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */; };
-		861692061AF965F70051A551 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692051AF965F70051A551 /* DropboxSDK.framework */; };
 		861692081AF9660D0051A551 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692071AF9660D0051A551 /* Security.framework */; };
 		8616920A1AF966160051A551 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861692091AF966160051A551 /* QuartzCore.framework */; };
 		865E96441AF912C300358801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E96431AF912C300358801 /* main.m */; };
@@ -22,6 +20,8 @@
 		865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E96691AF916AD00358801 /* AssetsLibrary.framework */; };
 		865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E966C1AF91A9400358801 /* AVFoundation.framework */; };
 		86A601791AF9376500827547 /* SVNImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A601781AF9376500827547 /* SVNImageCell.m */; };
+		86ACAF331AFA8E45007CF67B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ACAF321AFA8E45007CF67B /* DropboxSDK.framework */; };
+		86ACAF361AFA8ECF007CF67B /* SVNNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,6 @@
 /* Begin PBXFileReference section */
 		860C8D8E1AFA5FFA00774F5D /* SVNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNImage.h; sourceTree = "<group>"; };
 		860C8D8F1AFA5FFA00774F5D /* SVNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNImage.m; sourceTree = "<group>"; };
-		86132F521AFA760F00154B33 /* SVNDropboxNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNDropboxNetworking.h; sourceTree = "<group>"; };
-		86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNDropboxNetworking.m; sourceTree = "<group>"; };
-		861692051AF965F70051A551 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		861692071AF9660D0051A551 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		861692091AF966160051A551 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		865E963E1AF912C300358801 /* DropboxPhotoUploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxPhotoUploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +56,9 @@
 		865E966C1AF91A9400358801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86A601771AF9376500827547 /* SVNImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNImageCell.h; sourceTree = "<group>"; };
 		86A601781AF9376500827547 /* SVNImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNImageCell.m; sourceTree = "<group>"; };
+		86ACAF321AFA8E45007CF67B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		86ACAF341AFA8ECF007CF67B /* SVNNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNNetworkManager.h; sourceTree = "<group>"; };
+		86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNNetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +68,8 @@
 			files = (
 				8616920A1AF966160051A551 /* QuartzCore.framework in Frameworks */,
 				861692081AF9660D0051A551 /* Security.framework in Frameworks */,
-				861692061AF965F70051A551 /* DropboxSDK.framework in Frameworks */,
 				865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */,
+				86ACAF331AFA8E45007CF67B /* DropboxSDK.framework in Frameworks */,
 				865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,9 +165,9 @@
 		865E966B1AF916B400358801 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86ACAF321AFA8E45007CF67B /* DropboxSDK.framework */,
 				861692091AF966160051A551 /* QuartzCore.framework */,
 				861692071AF9660D0051A551 /* Security.framework */,
-				861692051AF965F70051A551 /* DropboxSDK.framework */,
 				865E966C1AF91A9400358801 /* AVFoundation.framework */,
 				865E96691AF916AD00358801 /* AssetsLibrary.framework */,
 			);
@@ -188,8 +188,8 @@
 		86A6017B1AF9378F00827547 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				86132F521AFA760F00154B33 /* SVNDropboxNetworking.h */,
-				86132F531AFA760F00154B33 /* SVNDropboxNetworking.m */,
+				86ACAF341AFA8ECF007CF67B /* SVNNetworkManager.h */,
+				86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -296,9 +296,9 @@
 			files = (
 				860C8D901AFA5FFA00774F5D /* SVNImage.m in Sources */,
 				865E964A1AF912C300358801 /* SVNMainViewController.m in Sources */,
+				86ACAF361AFA8ECF007CF67B /* SVNNetworkManager.m in Sources */,
 				865E96471AF912C300358801 /* AppDelegate.m in Sources */,
 				865E96441AF912C300358801 /* main.m in Sources */,
-				86132F541AFA760F00154B33 /* SVNDropboxNetworking.m in Sources */,
 				86A601791AF9376500827547 /* SVNImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +428,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/vladislav/Downloads/dropbox-ios-sdk-1.3.13",
 				);
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -443,6 +444,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/vladislav/Downloads/dropbox-ios-sdk-1.3.13",
 				);
 				INFOPLIST_FILE = DropboxPhotoUploader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

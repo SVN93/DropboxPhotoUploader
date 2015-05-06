@@ -7,15 +7,15 @@
 //
 
 #import "SVNMainViewController.h"
-#include <AssetsLibrary/AssetsLibrary.h> 
-#include "SVNImageCell.h"
+#import <AssetsLibrary/AssetsLibrary.h> 
+#import "SVNImageCell.h"
 #import "SVNImage.h"
-#import <DropboxSDK/DropboxSDK.h>
+//#import <DropboxSDK/DropboxSDK.h>
 
 static int count = 0;
 static NSString *reusableCellIdentifier = @"SVNReusableCell";
 
-@interface SVNMainViewController () <UICollectionViewDataSource, UICollectionViewDelegate, DBRestClientDelegate> {
+@interface SVNMainViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     ALAssetsLibrary *library;
     NSArray *imageArray;
     NSMutableArray *mutableArray;
@@ -25,7 +25,7 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *downloadButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uploadButton;
 
-@property (nonatomic, strong) DBRestClient *restClient;
+//@property (nonatomic, strong) DBRestClient *restClient;
 @property (nonatomic) NSMutableArray *selectedImages;
 
 @end
@@ -42,8 +42,8 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.collectionView.allowsMultipleSelection = YES;
-    self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-    self.restClient.delegate = self;
+//    self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+//    self.restClient.delegate = self;
     _selectedImages = [NSMutableArray new];
     
 }
@@ -57,30 +57,30 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 #pragma mark - Buttons
 
 - (IBAction)uploadButtonPressed:(UIBarButtonItem *)sender {
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:self];
-    }
+//    if (![[DBSession sharedSession] isLinked]) {
+//        [[DBSession sharedSession] linkFromController:self];
+//    }
     
-    for (SVNImage *image in _selectedImages) {
-        // Write a file to the local documents directory
-        NSString *filename = [image fileName];
-        NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-        [UIImagePNGRepresentation(image) writeToFile:tmpFile atomically:NO];
-        
-        // Upload file to Dropbox
-        NSString *destDir = @"/Photos/";
-        
-        // Uploading...
-        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile];
-    }
+//    for (SVNImage *image in _selectedImages) {
+//        // Write a file to the local documents directory
+//        NSString *filename = [image fileName];
+//        NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
+//        [UIImagePNGRepresentation(image) writeToFile:tmpFile atomically:NO];
+//        
+//        // Upload file to Dropbox
+//        NSString *destDir = @"/Photos/";
+//        
+//        // Uploading...
+//        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile];
+//    }
 }
 
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:self];
-    }
+//    if (![[DBSession sharedSession] isLinked]) {
+//        [[DBSession sharedSession] linkFromController:self];
+//    }
     
-    [self.restClient loadMetadata:@"dropbox"];
+//    [self.restClient loadMetadata:@"dropbox"];
 }
 
 
@@ -174,38 +174,38 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 }
 
 
-#pragma mark - DBRestClientDelegate
-
-- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
-}
-
-- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    NSLog(@"File upload failed with error: %@", error);
-}
-
-- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
-    if (metadata.isDirectory) {
-        NSLog(@"Folder '%@' contains:", metadata.path);
-        for (DBMetadata *file in metadata.contents) {
-            NSLog(@"	%@", file.filename);
-        }
-    }
-}
-
-- (void)restClient:(DBRestClient *)client
-loadMetadataFailedWithError:(NSError *)error {
-    NSLog(@"Error loading metadata: %@", error);
-}
-
-- (void)restClient:(DBRestClient *)client loadedFile:(NSString *)localPath
-       contentType:(NSString *)contentType metadata:(DBMetadata *)metadata {
-    NSLog(@"File loaded into path: %@", localPath);
-}
-
-- (void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error {
-    NSLog(@"There was an error loading the file: %@", error);
-}
+//#pragma mark - DBRestClientDelegate
+//
+//- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
+//              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
+//    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+//}
+//
+//- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
+//    NSLog(@"File upload failed with error: %@", error);
+//}
+//
+//- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
+//    if (metadata.isDirectory) {
+//        NSLog(@"Folder '%@' contains:", metadata.path);
+//        for (DBMetadata *file in metadata.contents) {
+//            NSLog(@"	%@", file.filename);
+//        }
+//    }
+//}
+//
+//- (void)restClient:(DBRestClient *)client
+//loadMetadataFailedWithError:(NSError *)error {
+//    NSLog(@"Error loading metadata: %@", error);
+//}
+//
+//- (void)restClient:(DBRestClient *)client loadedFile:(NSString *)localPath
+//       contentType:(NSString *)contentType metadata:(DBMetadata *)metadata {
+//    NSLog(@"File loaded into path: %@", localPath);
+//}
+//
+//- (void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error {
+//    NSLog(@"There was an error loading the file: %@", error);
+//}
 
 @end
