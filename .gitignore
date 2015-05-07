@@ -164,3 +164,13 @@ Pods/Target Support Files/Pods-DropboxPhotoUploader-DropBlocks/Pods-DropboxPhoto
 Pods/Target Support Files/Pods-DropboxPhotoUploader-DropBlocks/Pods-DropboxPhotoUploader-DropBlocks-prefix.pch
 Pods/Target Support Files/Pods-DropboxPhotoUploader-DropBlocks/Pods-DropboxPhotoUploader-DropBlocks-Private.xcconfig
 Pods/Target Support Files/Pods-DropboxPhotoUploader-DropBlocks/Pods-DropboxPhotoUploader-DropBlocks.xcconfig
+Pods/Headers/Private/MBProgressHUD/MBProgressHUD.h
+Pods/Headers/Public/MBProgressHUD/MBProgressHUD.h
+Pods/MBProgressHUD/LICENSE
+Pods/MBProgressHUD/MBProgressHUD.h
+Pods/MBProgressHUD/MBProgressHUD.m
+Pods/MBProgressHUD/README.mdown
+Pods/Target Support Files/Pods-DropboxPhotoUploader-MBProgressHUD/Pods-DropboxPhotoUploader-MBProgressHUD-dummy.m
+Pods/Target Support Files/Pods-DropboxPhotoUploader-MBProgressHUD/Pods-DropboxPhotoUploader-MBProgressHUD-prefix.pch
+Pods/Target Support Files/Pods-DropboxPhotoUploader-MBProgressHUD/Pods-DropboxPhotoUploader-MBProgressHUD-Private.xcconfig
+Pods/Target Support Files/Pods-DropboxPhotoUploader-MBProgressHUD/Pods-DropboxPhotoUploader-MBProgressHUD.xcconfig

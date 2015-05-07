@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class SVNImage;
+@class SVNDropboxBundle;
 
 @interface SVNDropboxPreviewCell : UICollectionViewCell
 
-- (void)loadImagePreview;
+- (void)setBundle:(SVNDropboxBundle *)bundle;
 
 - (void)downloadImage;
 

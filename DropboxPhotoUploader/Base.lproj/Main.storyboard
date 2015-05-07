@@ -68,6 +68,12 @@
                                                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sxL-a0-PNy">
                                                     <rect key="frame" x="15" y="8" width="100" height="2"/>
                                                 </progressView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gX2-ST-8hH" userLabel="progress">
+                                                    <rect key="frame" x="15" y="8" width="100" height="100"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -77,13 +83,17 @@
                                             <constraint firstItem="UuK-By-gn7" firstAttribute="top" secondItem="EzT-y6-si8" secondAttribute="topMargin" constant="-8" id="Atd-Oe-dn5"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="8Vw-dr-HZv" secondAttribute="trailing" constant="-8" id="FCq-2D-h0f"/>
                                             <constraint firstItem="sxL-a0-PNy" firstAttribute="trailing" secondItem="UuK-By-gn7" secondAttribute="trailing" id="FQW-9O-FcF"/>
+                                            <constraint firstItem="UuK-By-gn7" firstAttribute="top" secondItem="gX2-ST-8hH" secondAttribute="top" id="IIl-jD-TD0"/>
+                                            <constraint firstItem="UuK-By-gn7" firstAttribute="bottom" secondItem="gX2-ST-8hH" secondAttribute="bottom" id="Jsq-cw-SGr"/>
                                             <constraint firstItem="UuK-By-gn7" firstAttribute="top" secondItem="EzT-y6-si8" secondAttribute="topMargin" id="L3K-rQ-rkJ"/>
                                             <constraint firstItem="sxL-a0-PNy" firstAttribute="top" secondItem="UuK-By-gn7" secondAttribute="top" id="L3g-s7-wYm"/>
                                             <constraint firstItem="UuK-By-gn7" firstAttribute="leading" secondItem="EzT-y6-si8" secondAttribute="leadingMargin" constant="2" id="PFd-S2-2gs"/>
                                             <constraint firstItem="UuK-By-gn7" firstAttribute="top" secondItem="EzT-y6-si8" secondAttribute="topMargin" id="PKh-VD-QYM"/>
+                                            <constraint firstItem="UuK-By-gn7" firstAttribute="trailing" secondItem="gX2-ST-8hH" secondAttribute="trailing" id="Pac-87-BZf"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="8Vw-dr-HZv" secondAttribute="bottom" constant="-8" id="Rvx-eT-PLi"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="8Vw-dr-HZv" secondAttribute="trailing" constant="-8" id="T9T-FK-eb3"/>
                                             <constraint firstItem="8Vw-dr-HZv" firstAttribute="top" secondItem="UuK-By-gn7" secondAttribute="bottom" constant="2" id="WiA-4E-S6l"/>
+                                            <constraint firstItem="UuK-By-gn7" firstAttribute="leading" secondItem="gX2-ST-8hH" secondAttribute="leading" id="YEf-kf-n28"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="8Vw-dr-HZv" secondAttribute="bottom" constant="-8" id="YYd-zg-Wpp"/>
                                             <constraint firstItem="sxL-a0-PNy" firstAttribute="trailing" secondItem="UuK-By-gn7" secondAttribute="trailing" constant="51" id="afK-G2-eXv"/>
                                             <constraint firstItem="8Vw-dr-HZv" firstAttribute="top" secondItem="UuK-By-gn7" secondAttribute="bottom" id="baF-a5-RkF"/>
@@ -119,6 +129,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="UuK-By-gn7" id="6pe-ur-UtZ"/>
                                             <outlet property="name" destination="8Vw-dr-HZv" id="kML-er-2CX"/>
+                                            <outlet property="progressLabel" destination="gX2-ST-8hH" id="3De-fv-atx"/>
                                             <outlet property="progressView" destination="sxL-a0-PNy" id="jaM-hu-3q4"/>
                                         </connections>
                                     </collectionViewCell>
@@ -143,7 +154,7 @@
                                 <action selector="downloadButtonPressed:" destination="vXZ-lx-hvc" id="Z4x-Ep-rmb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Upload" id="87i-pF-eZT">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Upload" id="87i-pF-eZT">
                             <connections>
                                 <action selector="uploadButtonPressed:" destination="vXZ-lx-hvc" id="TG1-cz-pJj"/>
                             </connections>
@@ -161,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="921" y="268"/>
         </scene>
-        <!--Dropbox Preview Controller-->
+        <!--Photos-->
         <scene sceneID="GY1-Z8-tXL">
             <objects>
                 <viewController id="L1m-Gj-0hx" customClass="SVNDropboxPreviewController" sceneMemberID="viewController">
@@ -209,6 +220,12 @@
                                                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QnJ-kN-GoC">
                                                     <rect key="frame" x="15" y="8" width="100" height="2"/>
                                                 </progressView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-qO-CMS" userLabel="progress">
+                                                    <rect key="frame" x="15" y="8" width="100" height="100"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -216,10 +233,14 @@
                                             <constraint firstItem="QnJ-kN-GoC" firstAttribute="leading" secondItem="a8v-Jb-46w" secondAttribute="leading" id="2yk-Vs-0BZ"/>
                                             <constraint firstItem="ATp-Vg-XQa" firstAttribute="top" secondItem="a8v-Jb-46w" secondAttribute="bottom" constant="2" id="4kp-8k-1Xv"/>
                                             <constraint firstItem="a8v-Jb-46w" firstAttribute="leading" secondItem="lqG-NB-rO6" secondAttribute="leadingMargin" constant="7" id="8KK-5Q-WUH"/>
+                                            <constraint firstItem="a8v-Jb-46w" firstAttribute="leading" secondItem="OHp-qO-CMS" secondAttribute="leading" id="C2t-wV-J5d"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="a8v-Jb-46w" secondAttribute="trailing" constant="7" id="FnE-8E-Wma"/>
                                             <constraint firstItem="ATp-Vg-XQa" firstAttribute="leading" secondItem="lqG-NB-rO6" secondAttribute="leadingMargin" constant="-8" id="HU6-rC-o7Y"/>
                                             <constraint firstItem="QnJ-kN-GoC" firstAttribute="top" secondItem="a8v-Jb-46w" secondAttribute="top" id="Ium-C8-Foe"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="ATp-Vg-XQa" secondAttribute="bottom" constant="-8" id="JYi-qX-r30"/>
+                                            <constraint firstItem="a8v-Jb-46w" firstAttribute="top" secondItem="OHp-qO-CMS" secondAttribute="top" id="MhJ-Sr-k4s"/>
+                                            <constraint firstItem="a8v-Jb-46w" firstAttribute="trailing" secondItem="OHp-qO-CMS" secondAttribute="trailing" id="XmQ-W1-FlL"/>
+                                            <constraint firstItem="a8v-Jb-46w" firstAttribute="bottom" secondItem="OHp-qO-CMS" secondAttribute="bottom" id="dxY-zk-t61"/>
                                             <constraint firstItem="a8v-Jb-46w" firstAttribute="top" secondItem="lqG-NB-rO6" secondAttribute="topMargin" id="iA3-0y-1b0"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ATp-Vg-XQa" secondAttribute="trailing" constant="-8" id="kiu-cJ-eqt"/>
                                             <constraint firstItem="QnJ-kN-GoC" firstAttribute="trailing" secondItem="a8v-Jb-46w" secondAttribute="trailing" id="qXf-NZ-cfw"/>
@@ -227,6 +248,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="a8v-Jb-46w" id="w7s-ZZ-2Do"/>
                                             <outlet property="name" destination="ATp-Vg-XQa" id="XIM-Rf-SxO"/>
+                                            <outlet property="progressLabel" destination="OHp-qO-CMS" id="Q3e-PD-zOI"/>
                                             <outlet property="progressView" destination="QnJ-kN-GoC" id="6CR-wx-VsK"/>
                                         </connections>
                                     </collectionViewCell>
@@ -245,13 +267,14 @@
                             <constraint firstItem="WgU-60-xBJ" firstAttribute="top" secondItem="EWr-zS-w29" secondAttribute="topMargin" id="h2y-nL-vK2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wbL-hY-CbK">
-                        <barButtonItem key="rightBarButtonItem" title="Download" id="KLI-Lh-z2m">
+                    <navigationItem key="navigationItem" title="Photos" id="wbL-hY-CbK">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Download" id="KLI-Lh-z2m">
                             <connections>
                                 <action selector="downloadButtonPressed:" destination="L1m-Gj-0hx" id="w1j-tU-WHR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="WgU-60-xBJ" id="UcT-Jc-6A5"/>

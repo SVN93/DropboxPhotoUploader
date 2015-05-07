@@ -85,6 +85,7 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     SVNCollectionCell *selectedCell = (SVNCollectionCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:YES];
     [_selectedCells addObject:selectedCell];
+    [self checkUploadButtonEnabling];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -92,6 +93,7 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     SVNCollectionCell *selectedCell = (SVNCollectionCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:NO];
     [_selectedCells removeObject:selectedCell];
+    [self checkUploadButtonEnabling];
 }
 
 
@@ -112,6 +114,15 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
 
 #pragma mark - Helpers
 
+- (void)checkUploadButtonEnabling
+{
+    if (_selectedCells.count) {
+        [self.uploadButton setEnabled:YES];
+    } else {
+        [self.uploadButton setEnabled:NO];
+    }
+}
+
 -(void)getAllPictures {
     imageArray = [[NSArray alloc] init];
     mutableArray = [[NSMutableArray alloc]init];
@@ -131,14 +142,12 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
                              SVNImage *image = [[SVNImage alloc] initWithALAsset:asset];
                              [mutableArray addObject:image];
                              
-                             if ([mutableArray count] == count)
-                             {
+                             if ([mutableArray count] == count) {
                                  imageArray = [[NSArray alloc] initWithArray:mutableArray];
                                  [self allPhotosCollected:imageArray];
                              }
                          }
                         failureBlock:^(NSError *error){ NSLog(@"operation was not successfull!"); } ];
-                
             }
         }
     };

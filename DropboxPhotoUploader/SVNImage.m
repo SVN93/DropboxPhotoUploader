@@ -18,6 +18,7 @@
 
 - (id)initWithALAsset:(ALAsset *)asset {
     self = [super initWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+//    self = [super initWithCGImage:[asset thumbnail]];
     if (self) {
         self.fileName = [[asset defaultRepresentation] filename];
     }

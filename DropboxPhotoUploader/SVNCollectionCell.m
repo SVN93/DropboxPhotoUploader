@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 @property (nonatomic) SVNImage *imageContainer;
 
@@ -43,9 +44,11 @@
     // Upload file to Dropbox
     NSString *destDir = @"/Photos/";
     [self.progressView setHidden:NO];
+    [self.progressLabel setHidden:NO];
     [DropBlocks uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile completionBlock:^(NSString *destDir, DBMetadata *metadata, NSError *error) {
         [self.progressView setHidden:YES];
-        
+        [self.progressLabel setHidden:YES];
+
         if (error) {
             NSLog(@"Uh oh, something went wrong with this file load. I'd better do something about that.");
         } else {
@@ -53,6 +56,7 @@
         }
     } progressBlock:^(CGFloat progress) {
         self.progressView.progress = progress;
+        self.progressLabel.text = [NSString stringWithFormat:@"%.02f%%", progress * 100];
     }];
 }
 

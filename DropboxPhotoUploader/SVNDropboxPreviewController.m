@@ -12,6 +12,7 @@
 #import "SVNImage.h"
 #import "DropBlocks.h"
 #import "SVNDropboxBundle.h"
+#import "MBProgressHUD.h"
 
 static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 
@@ -22,7 +23,7 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *downloadButtom;
 
-@property (nonatomic) NSMutableArray *selectedImages;
+@property (nonatomic) NSMutableArray *selectedCells;
 
 @end
 
@@ -35,8 +36,8 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [DropBlocks loadMetadata:@"/Photos/" withHash:@"" completionBlock:^(DBMetadata *metadata, NSError *error) {
-        NSLog(@"Metadata = %@", metadata);
         NSArray* validExtensions = [NSArray arrayWithObjects:@"jpg", @"jpeg", @"gif", @"png", nil];
         for (DBMetadata *child in metadata.contents)
         {
@@ -72,7 +73,7 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
         }
         
         [self.collectionView reloadData];
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 
@@ -80,7 +81,7 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.collectionView.allowsMultipleSelection = YES;
-    _selectedImages = [NSMutableArray new];
+    _selectedCells = [NSMutableArray new];
     bundles = [NSMutableArray new];
 }
 
@@ -96,7 +97,11 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 #pragma mark - Actions
 
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
-    
+    if (_selectedCells.count) {
+        for (SVNDropboxPreviewCell *cell in _selectedCells) {
+            [cell downloadImage];
+        }
+    }
 }
 
 
@@ -106,14 +111,16 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 {
     SVNDropboxPreviewCell *selectedCell = (SVNDropboxPreviewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:YES];
-//    [_selectedImages addObject:[imageArray objectAtIndex:indexPath.row]];
+    [_selectedCells addObject:selectedCell];
+    [self checkDownloadButtonEnabling];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SVNDropboxPreviewCell *selectedCell = (SVNDropboxPreviewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:NO];
-//    [_selectedImages removeObject:[imageArray objectAtIndex:indexPath.row]];
+    [_selectedCells removeObject:selectedCell];
+    [self checkDownloadButtonEnabling];
 }
 
 
@@ -127,9 +134,21 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SVNDropboxPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusablePreviewCell forIndexPath:indexPath];
-//    SVNImage *image = [imageArray objectAtIndex:indexPath.row];
-//    [cell setImage:image];
+    SVNDropboxBundle *bundle = [bundles objectAtIndex:indexPath.row];
+    [cell setBundle:bundle];
     return cell;
+}
+
+
+#pragma mark - Helpers
+
+- (void)checkDownloadButtonEnabling
+{
+    if (_selectedCells.count) {
+        [self.downloadButtom setEnabled:YES];
+    } else {
+        [self.downloadButtom setEnabled:NO];
+    }
 }
 
 @end

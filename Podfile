@@ -3,4 +3,5 @@
 
 target 'DropboxPhotoUploader' do
 pod 'DropBlocks'
+pod 'MBProgressHUD'
 end
