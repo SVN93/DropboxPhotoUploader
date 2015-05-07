@@ -36,6 +36,8 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getAllPictures];
+    [_selectedCells removeAllObjects];
+    [self checkUploadButtonEnabling];
 }
 
 - (void)viewDidLoad {

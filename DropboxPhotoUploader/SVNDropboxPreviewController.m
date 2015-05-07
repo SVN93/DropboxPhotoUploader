@@ -33,6 +33,7 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [bundles removeAllObjects];
+    [self checkDownloadButtonEnabling];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
