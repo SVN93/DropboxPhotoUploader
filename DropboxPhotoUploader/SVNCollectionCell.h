@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SVNImageCell : UICollectionViewCell
+@class SVNImage;
 
-- (void)setImage:(UIImage *)image;
+@interface SVNCollectionCell : UICollectionViewCell
+
+- (void)setImage:(SVNImage *)image;
+
+- (void)uploadImage;
 
 @end

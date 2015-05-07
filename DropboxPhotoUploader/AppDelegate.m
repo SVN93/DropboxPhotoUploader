@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SVNNetworkManager.h"
 #import <DropboxSDK/DropboxSDK.h>
 
 @interface AppDelegate ()
@@ -20,12 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     DBSession *dbSession = [[DBSession alloc]
-                            initWithAppKey:@"35qxbigm2f4d0ko"
-                            appSecret:@"n87785kkfp8t39k"
-                            root:kDBRootAppFolder]; // either kDBRootAppFolder or kDBRootDropbox
+                            initWithAppKey:@"y8uisbederyod2q"
+                            appSecret:@"tqgfv90ve7t3dw9"
+                            root:kDBRootDropbox]; // either kDBRootAppFolder or kDBRootDropbox
     [DBSession setSharedSession:dbSession];
-    
-    self.networkManager = [[SVNNetworkManager alloc] init];
     
     return YES;
 }

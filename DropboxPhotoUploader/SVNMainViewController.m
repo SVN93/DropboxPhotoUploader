@@ -8,12 +8,13 @@
 
 #import "SVNMainViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h> 
-#import "SVNImageCell.h"
+#import "SVNCollectionCell.h"
 #import "SVNImage.h"
-//#import <DropboxSDK/DropboxSDK.h>
+#import <DropboxSDK/DropboxSDK.h>
 
 static int count = 0;
 static NSString *reusableCellIdentifier = @"SVNReusableCell";
+static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
 
 @interface SVNMainViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     ALAssetsLibrary *library;
@@ -24,10 +25,8 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *downloadButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uploadButton;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
-//@property (nonatomic, strong) DBRestClient *restClient;
-@property (nonatomic) NSMutableArray *selectedImages;
+@property (nonatomic) NSMutableArray *selectedCells;
 
 @end
 
@@ -43,10 +42,10 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.collectionView.allowsMultipleSelection = YES;
-//    self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-//    self.restClient.delegate = self;
-    _selectedImages = [NSMutableArray new];
-    
+    _selectedCells = [NSMutableArray new];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,34 +53,28 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     // Dispose of any resources that can be recreated.x
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+}
 
-#pragma mark - Buttons
+#pragma mark - Actions
 
 - (IBAction)uploadButtonPressed:(UIBarButtonItem *)sender {
-//    if (![[DBSession sharedSession] isLinked]) {
-//        [[DBSession sharedSession] linkFromController:self];
-//    }
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
     
-//    for (SVNImage *image in _selectedImages) {
-//        // Write a file to the local documents directory
-//        NSString *filename = [image fileName];
-//        NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-//        [UIImagePNGRepresentation(image) writeToFile:tmpFile atomically:NO];
-//        
-//        // Upload file to Dropbox
-//        NSString *destDir = @"/Photos/";
-//        
-//        // Uploading...
-//        [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile];
-//    }
+    for (SVNCollectionCell *cell in _selectedCells) {
+        [cell uploadImage];
+    }
 }
 
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
-//    if (![[DBSession sharedSession] isLinked]) {
-//        [[DBSession sharedSession] linkFromController:self];
-//    }
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
     
-//    [self.restClient loadMetadata:@"dropbox"];
+    [self performSegueWithIdentifier:SegueToDropboxPreviewVC sender:self];
 }
 
 
@@ -89,16 +82,16 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    SVNCollectionCell *selectedCell = (SVNCollectionCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:YES];
-    [_selectedImages addObject:[imageArray objectAtIndex:indexPath.row]];
+    [_selectedCells addObject:selectedCell];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SVNImageCell *selectedCell = (SVNImageCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    SVNCollectionCell *selectedCell = (SVNCollectionCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell setSelected:NO];
-    [_selectedImages removeObject:[imageArray objectAtIndex:indexPath.row]];
+    [_selectedCells removeObject:selectedCell];
 }
 
 
@@ -110,8 +103,8 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    SVNImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellIdentifier forIndexPath:indexPath];
-    UIImage *image = [imageArray objectAtIndex:indexPath.row];
+    SVNCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellIdentifier forIndexPath:indexPath];
+    SVNImage *image = [imageArray objectAtIndex:indexPath.row];
     [cell setImage:image];
     return cell;
 }
@@ -173,40 +166,5 @@ static NSString *reusableCellIdentifier = @"SVNReusableCell";
     [self.collectionView reloadData];
 //    NSLog(@"all pictures are %@", imgArray);
 }
-
-
-//#pragma mark - DBRestClientDelegate
-//
-//- (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
-//              from:(NSString *)srcPath metadata:(DBMetadata *)metadata {
-//    NSLog(@"File uploaded successfully to path: %@", metadata.path);
-//}
-//
-//- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-//    NSLog(@"File upload failed with error: %@", error);
-//}
-//
-//- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
-//    if (metadata.isDirectory) {
-//        NSLog(@"Folder '%@' contains:", metadata.path);
-//        for (DBMetadata *file in metadata.contents) {
-//            NSLog(@"	%@", file.filename);
-//        }
-//    }
-//}
-//
-//- (void)restClient:(DBRestClient *)client
-//loadMetadataFailedWithError:(NSError *)error {
-//    NSLog(@"Error loading metadata: %@", error);
-//}
-//
-//- (void)restClient:(DBRestClient *)client loadedFile:(NSString *)localPath
-//       contentType:(NSString *)contentType metadata:(DBMetadata *)metadata {
-//    NSLog(@"File loaded into path: %@", localPath);
-//}
-//
-//- (void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error {
-//    NSLog(@"There was an error loading the file: %@", error);
-//}
 
 @end

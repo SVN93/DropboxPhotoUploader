@@ -20,9 +20,11 @@
 		865E965E1AF912C300358801 /* DropboxPhotoUploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E965D1AF912C300358801 /* DropboxPhotoUploaderTests.m */; };
 		865E966A1AF916AD00358801 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E96691AF916AD00358801 /* AssetsLibrary.framework */; };
 		865E966D1AF91A9400358801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865E966C1AF91A9400358801 /* AVFoundation.framework */; };
-		86A601791AF9376500827547 /* SVNImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A601781AF9376500827547 /* SVNImageCell.m */; };
+		866F49B61AFBAE68004719AB /* SVNDropboxPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866F49B51AFBAE68004719AB /* SVNDropboxPreviewController.m */; };
+		866F49B91AFBB8F4004719AB /* SVNDropboxPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 866F49B81AFBB8F4004719AB /* SVNDropboxPreviewCell.m */; };
+		866F49BC1AFBBECC004719AB /* SVNDropboxBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 866F49BB1AFBBECC004719AB /* SVNDropboxBundle.m */; };
+		86A601791AF9376500827547 /* SVNCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A601781AF9376500827547 /* SVNCollectionCell.m */; };
 		86ACAF331AFA8E45007CF67B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ACAF321AFA8E45007CF67B /* DropboxSDK.framework */; };
-		86ACAF361AFA8ECF007CF67B /* SVNNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,11 +59,15 @@
 		865E965D1AF912C300358801 /* DropboxPhotoUploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropboxPhotoUploaderTests.m; sourceTree = "<group>"; };
 		865E96691AF916AD00358801 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		865E966C1AF91A9400358801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		86A601771AF9376500827547 /* SVNImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNImageCell.h; sourceTree = "<group>"; };
-		86A601781AF9376500827547 /* SVNImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNImageCell.m; sourceTree = "<group>"; };
+		866F49B41AFBAE68004719AB /* SVNDropboxPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNDropboxPreviewController.h; sourceTree = "<group>"; };
+		866F49B51AFBAE68004719AB /* SVNDropboxPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNDropboxPreviewController.m; sourceTree = "<group>"; };
+		866F49B71AFBB8F4004719AB /* SVNDropboxPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNDropboxPreviewCell.h; sourceTree = "<group>"; };
+		866F49B81AFBB8F4004719AB /* SVNDropboxPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNDropboxPreviewCell.m; sourceTree = "<group>"; };
+		866F49BA1AFBBECC004719AB /* SVNDropboxBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNDropboxBundle.h; sourceTree = "<group>"; };
+		866F49BB1AFBBECC004719AB /* SVNDropboxBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNDropboxBundle.m; sourceTree = "<group>"; };
+		86A601771AF9376500827547 /* SVNCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNCollectionCell.h; sourceTree = "<group>"; };
+		86A601781AF9376500827547 /* SVNCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNCollectionCell.m; sourceTree = "<group>"; };
 		86ACAF321AFA8E45007CF67B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
-		86ACAF341AFA8ECF007CF67B /* SVNNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVNNetworkManager.h; sourceTree = "<group>"; };
-		86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVNNetworkManager.m; sourceTree = "<group>"; };
 		89D2B34145366BB96028F215 /* Pods-DropboxPhotoUploader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropboxPhotoUploader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropboxPhotoUploader/Pods-DropboxPhotoUploader.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,8 @@
 			children = (
 				865E96481AF912C300358801 /* SVNMainViewController.h */,
 				865E96491AF912C300358801 /* SVNMainViewController.m */,
+				866F49B41AFBAE68004719AB /* SVNDropboxPreviewController.h */,
+				866F49B51AFBAE68004719AB /* SVNDropboxPreviewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -193,10 +201,14 @@
 		86A6017A1AF9376B00827547 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				86A601771AF9376500827547 /* SVNImageCell.h */,
-				86A601781AF9376500827547 /* SVNImageCell.m */,
 				860C8D8E1AFA5FFA00774F5D /* SVNImage.h */,
 				860C8D8F1AFA5FFA00774F5D /* SVNImage.m */,
+				86A601771AF9376500827547 /* SVNCollectionCell.h */,
+				86A601781AF9376500827547 /* SVNCollectionCell.m */,
+				866F49BA1AFBBECC004719AB /* SVNDropboxBundle.h */,
+				866F49BB1AFBBECC004719AB /* SVNDropboxBundle.m */,
+				866F49B71AFBB8F4004719AB /* SVNDropboxPreviewCell.h */,
+				866F49B81AFBB8F4004719AB /* SVNDropboxPreviewCell.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -204,8 +216,6 @@
 		86A6017B1AF9378F00827547 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				86ACAF341AFA8ECF007CF67B /* SVNNetworkManager.h */,
-				86ACAF351AFA8ECF007CF67B /* SVNNetworkManager.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -346,11 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				860C8D901AFA5FFA00774F5D /* SVNImage.m in Sources */,
+				866F49B61AFBAE68004719AB /* SVNDropboxPreviewController.m in Sources */,
+				866F49BC1AFBBECC004719AB /* SVNDropboxBundle.m in Sources */,
+				866F49B91AFBB8F4004719AB /* SVNDropboxPreviewCell.m in Sources */,
 				865E964A1AF912C300358801 /* SVNMainViewController.m in Sources */,
-				86ACAF361AFA8ECF007CF67B /* SVNNetworkManager.m in Sources */,
 				865E96471AF912C300358801 /* AppDelegate.m in Sources */,
 				865E96441AF912C300358801 /* main.m in Sources */,
-				86A601791AF9376500827547 /* SVNImageCell.m in Sources */,
+				86A601791AF9376500827547 /* SVNCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
