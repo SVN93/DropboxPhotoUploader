@@ -65,9 +65,15 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     if (![[DBSession sharedSession] isLinked]) {
         [[DBSession sharedSession] linkFromController:self];
     }
-    
+
     for (SVNCollectionCell *cell in _selectedCells) {
-        [cell uploadImage];
+        [cell uploadImageWithCompletion:^(BOOL success) {
+//            if (success) {
+//                
+//            } else {
+//                
+//            }
+        }];
     }
 }
 
@@ -107,7 +113,8 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    SVNCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellIdentifier forIndexPath:indexPath];
+    SVNCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellIdentifier
+                                                                        forIndexPath:indexPath];
     SVNImage *image = [imageArray objectAtIndex:indexPath.row];
     [cell setImage:image];
     return cell;

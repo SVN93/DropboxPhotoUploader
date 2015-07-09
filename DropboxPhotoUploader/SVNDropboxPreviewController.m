@@ -100,7 +100,9 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
     if (_selectedCells.count) {
         for (SVNDropboxPreviewCell *cell in _selectedCells) {
-            [cell downloadImage];
+            [cell downloadImageWithCompletion:^(BOOL success) {
+                //
+            }];
         }
     }
 }

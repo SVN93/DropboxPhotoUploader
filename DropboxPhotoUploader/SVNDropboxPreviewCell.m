@@ -61,7 +61,7 @@
 
 }
 
-- (void)downloadImage {
+- (void)downloadImageWithCompletion:(CompletionBlock)completion {
     [self.progressView setHidden:NO];
     [self.progressLabel setHidden:NO];
     [DropBlocks loadFile:_cellBundle.title intoPath:_cellBundle.path completionBlock:^(NSString *contentType, DBMetadata *metadata, NSError *error) {
@@ -70,6 +70,14 @@
         UIImage *fullImage = [UIImage imageWithContentsOfFile:_cellBundle.path];
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
         [library writeImageToSavedPhotosAlbum:[fullImage CGImage] orientation:ALAssetOrientationUp completionBlock:nil];
+        
+        if (error) {
+            NSLog(@"Uh oh, something went wrong with this file download. I'd better do something about that.");
+            completion(NO);
+        } else {
+            NSLog(@"Yay, my file downloaded. My work here is done.");
+            completion(YES);
+        }
     } progressBlock:^(CGFloat progress) {
         self.progressView.progress = progress;
         self.progressLabel.text = [NSString stringWithFormat:@"%.02f%%", progress * 100];

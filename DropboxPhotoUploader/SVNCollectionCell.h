@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class SVNImage;
+typedef void (^CompletionBlock)(BOOL success);
 
 @interface SVNCollectionCell : UICollectionViewCell
 
 - (void)setImage:(SVNImage *)image;
 
-- (void)uploadImage;
+- (void)uploadImageWithCompletion:(CompletionBlock)completion;
 
 @end

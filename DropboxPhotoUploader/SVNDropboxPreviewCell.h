@@ -10,10 +10,12 @@
 
 @class SVNDropboxBundle;
 
+typedef void (^CompletionBlock)(BOOL success);
+
 @interface SVNDropboxPreviewCell : UICollectionViewCell
 
 - (void)setBundle:(SVNDropboxBundle *)bundle;
 
-- (void)downloadImage;
+- (void)downloadImageWithCompletion:(CompletionBlock)completion;
 
 @end

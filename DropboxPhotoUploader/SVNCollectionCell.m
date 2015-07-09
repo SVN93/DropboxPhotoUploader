@@ -36,7 +36,7 @@
     [self setSelectedBackgroundView:selectedBackgroundView];
 }
 
-- (void)uploadImage {
+- (void)uploadImageWithCompletion:(CompletionBlock)completion {
     // Write a file to the local documents directory
     NSString *filename = [self.imageContainer fileName];
     NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
@@ -48,11 +48,13 @@
     [DropBlocks uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile completionBlock:^(NSString *destDir, DBMetadata *metadata, NSError *error) {
         [self.progressView setHidden:YES];
         [self.progressLabel setHidden:YES];
-
+        
         if (error) {
             NSLog(@"Uh oh, something went wrong with this file load. I'd better do something about that.");
+            completion(NO);
         } else {
             NSLog(@"Yay, my file loaded. My work here is done.");
+            completion(YES);
         }
     } progressBlock:^(CGFloat progress) {
         self.progressView.progress = progress;
