@@ -36,31 +36,51 @@
     [self setSelectedBackgroundView:selectedBackgroundView];
 }
 
-- (void)uploadImageWithCompletion:(CompletionBlock)completion {
-    // Write a file to the local documents directory
-    NSString *filename = [self.imageContainer fileName];
-    NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-    [UIImagePNGRepresentation(self.imageContainer) writeToFile:tmpFile atomically:NO];
-    // Upload file to Dropbox
-    NSString *destDir = @"/Photos/";
+- (SVNImage *)getImage {
+    if (_imageContainer != nil) {
+        return _imageContainer;
+    }
+    return nil;
+}
+
+- (void)showProgress:(CGFloat)progress {
     [self.progressView setHidden:NO];
     [self.progressLabel setHidden:NO];
-    [DropBlocks uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile completionBlock:^(NSString *destDir, DBMetadata *metadata, NSError *error) {
-        [self.progressView setHidden:YES];
-        [self.progressLabel setHidden:YES];
-        
-        if (error) {
-            NSLog(@"Uh oh, something went wrong with this file load. I'd better do something about that.");
-            completion(NO);
-        } else {
-            NSLog(@"Yay, my file loaded. My work here is done.");
-            completion(YES);
-        }
-    } progressBlock:^(CGFloat progress) {
-        self.progressView.progress = progress;
-        self.progressLabel.text = [NSString stringWithFormat:@"%.02f%%", progress * 100];
-    }];
+    self.progressView.progress = progress;
+    self.progressLabel.text = [NSString stringWithFormat:@"%.02f%%", progress * 100];
 }
+
+- (void)hideProgress {
+    [self.progressView setHidden:YES];
+    [self.progressLabel setHidden:YES];
+}
+
+
+//- (void)uploadImageWithCompletion:(CompletionBlock)completion {
+//    // Write a file to the local documents directory
+//    NSString *filename = [self.imageContainer fileName];
+//    NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
+//    [UIImagePNGRepresentation(self.imageContainer) writeToFile:tmpFile atomically:NO];
+//    // Upload file to Dropbox
+//    NSString *destDir = @"/Photos/";
+//    [self.progressView setHidden:NO];
+//    [self.progressLabel setHidden:NO];
+//    [DropBlocks uploadFile:filename toPath:destDir withParentRev:nil fromPath:tmpFile completionBlock:^(NSString *destDir, DBMetadata *metadata, NSError *error) {
+//        [self.progressView setHidden:YES];
+//        [self.progressLabel setHidden:YES];
+//        
+//        if (error) {
+//            NSLog(@"Uh oh, something went wrong with this file load. I'd better do something about that.");
+//            completion(NO);
+//        } else {
+//            NSLog(@"Yay, my file loaded. My work here is done.");
+//            completion(YES);
+//        }
+//    } progressBlock:^(CGFloat progress) {
+//        self.progressView.progress = progress;
+//        self.progressLabel.text = [NSString stringWithFormat:@"%.02f%%", progress * 100];
+//    }];
+//}
 
 
 

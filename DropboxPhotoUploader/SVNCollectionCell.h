@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class SVNImage;
-typedef void (^CompletionBlock)(BOOL success);
 
 @interface SVNCollectionCell : UICollectionViewCell
 
 - (void)setImage:(SVNImage *)image;
 
-- (void)uploadImageWithCompletion:(CompletionBlock)completion;
+- (SVNImage *)getImage;
+
+- (void)showProgress:(CGFloat)progress;
+
+- (void)hideProgress;
+
+//- (void)uploadImageWithCompletion:(CompletionBlock)completion;
 
 @end

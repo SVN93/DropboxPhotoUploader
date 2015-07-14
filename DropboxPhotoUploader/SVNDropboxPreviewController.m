@@ -100,8 +100,11 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
 - (IBAction)downloadButtonPressed:(UIBarButtonItem *)sender {
     if (_selectedCells.count) {
         for (SVNDropboxPreviewCell *cell in _selectedCells) {
-            [cell downloadImageWithCompletion:^(BOOL success) {
-                //
+            SVNDropboxBundle *bundle = (SVNDropboxBundle*)[cell getBundle];
+            [bundle downloadImageWithCompletion:^(BOOL success) {
+                [cell hideProgress];
+            } andProgress:^(CGFloat progress) {
+                [cell showProgress:progress];
             }];
         }
     }
@@ -139,6 +142,12 @@ static NSString *reusablePreviewCell = @"SVNReusablePreviewCell";
     SVNDropboxPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusablePreviewCell forIndexPath:indexPath];
     SVNDropboxBundle *bundle = [bundles objectAtIndex:indexPath.row];
     [cell setBundle:bundle];
+    if ([bundle progressViewIsHidden] == NO) {
+        [cell showProgress:bundle.getProgress];
+    } else {
+        [cell hideProgress];
+    }
+
     return cell;
 }
 

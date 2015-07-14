@@ -67,12 +67,11 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     }
 
     for (SVNCollectionCell *cell in _selectedCells) {
-        [cell uploadImageWithCompletion:^(BOOL success) {
-//            if (success) {
-//                
-//            } else {
-//                
-//            }
+        SVNImage *image = (SVNImage*)[cell getImage];
+        [image uploadImageWithCompletion:^(BOOL success) {
+            [cell hideProgress];
+        } andProgress:^(CGFloat progress) {
+            [cell showProgress:progress];
         }];
     }
 }
@@ -111,12 +110,16 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     return imageArray.count;
 }
 
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SVNCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellIdentifier
                                                                         forIndexPath:indexPath];
     SVNImage *image = [imageArray objectAtIndex:indexPath.row];
     [cell setImage:image];
+    if ([image progressViewIsHidden] == NO) {
+        [cell showProgress:image.getProgress];
+    } else {
+        [cell hideProgress];
+    }
     return cell;
 }
 
@@ -172,7 +175,6 @@ static NSString *SegueToDropboxPreviewVC = @"SegueToDropboxPreviewVC";
     };
     
     assetGroups = [[NSMutableArray alloc] init];
-    
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:assetGroupEnumerator
                          failureBlock:^(NSError *error) {NSLog(@"There is an error");}];
